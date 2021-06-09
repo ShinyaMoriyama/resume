@@ -1,11 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+// import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+// import _ from "lodash";
 
 const navigation = [
-    { name: "Profile", to: "/profile", current: true },
+    { name: "Profile", to: "/profile", current: false },
     { name: "Projects", to: "/projects", current: false },
 ];
 
@@ -14,6 +15,24 @@ function classNames(...classes) {
 }
 
 function NavBar() {
+    // const [navigation, setNavigation] = useState([]);
+
+    // const updateNavigation = (name) => {
+    //     console.log(navigationProvided);
+    //     const navigation = _.cloneDeep(navigationProvided);
+    //     const index = _.findIndex(navigation, function (o) {
+    //         return o.name === name;
+    //     });
+    //     navigation[index].current = true;
+    //     console.log(navigation);
+
+    //     setNavigation(navigation);
+    // };
+
+    // useEffect(() => {
+    //     updateNavigation("Profile");
+    // }, []);
+
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -63,6 +82,16 @@ function NavBar() {
                                                         : undefined
                                                 }
                                                 to={item.to}
+                                                onClick={() => {
+                                                    console.log(
+                                                        "Link onClice",
+                                                        item.name
+                                                    );
+                                                    // setControl(1);
+                                                    // this.forceUpdate();
+                                                    // updateNavigation(item.name);
+                                                    window.location = item.to;
+                                                }}
                                             >
                                                 {item.name}
                                             </NavLink>
