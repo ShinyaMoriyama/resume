@@ -17,8 +17,10 @@ function App() {
         setCondition(initialCondition);
     };
 
-    const handleCondition = (key, value) =>
-        setCondition({ key: key, value: value });
+    const handleCondition = (key, value) => {
+        console.log(value);
+        setCondition({ key, value });
+    };
 
     const renderSwitch = (disp) => {
         switch (disp) {

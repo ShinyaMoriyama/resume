@@ -11,7 +11,7 @@ function ProjectsTableBody() {
         const projectsData = condition.key
             ? fileterProjectData(condition.key, condition.value)
             : getProjectsData();
-        console.log("useEffect!!", projectsData);
+        console.log("filtered", projectsData.length);
         setProjectData(projectsData);
     }, [condition]);
 
@@ -30,7 +30,6 @@ function ProjectsTableBody() {
                         <br />
                         <span
                             onClick={(e) => {
-                                console.log(e.target.innerText);
                                 handleCondition(
                                     "belonging",
                                     e.target.innerText
