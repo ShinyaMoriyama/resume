@@ -1,10 +1,10 @@
 import React from "react";
 
-const WithBackground = ({ component: Component }) => (
+const WithBackground = ({ children: Component }) => (
     <div className="w-fill">
         <div className="sm:h-1 bg-indigo-600"></div>
         <div className="flex items-center justify-center h-screen bg-indigo-600">
-            <Component />
+            {Component}
         </div>
     </div>
 );

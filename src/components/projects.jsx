@@ -1,7 +1,7 @@
 import ProjectsTableBody from "./projectsTableBody";
 import ProjectsTableHeader from "./projectsTableHeader";
 
-function Projects() {
+function Projects({ condition, handleCondition }) {
     return (
         <div className="sm:w-5/6 sm:h-5/6 overflow-y-auto sm:rounded-lg mt-auto md:mt-0">
             <div className="flex flex-col">
@@ -10,7 +10,10 @@ function Projects() {
                         <div className="shadow border-b border-gray-200 sm:rounded-lg">
                             <table className="min-w-full divide-y divide-gray-200">
                                 <ProjectsTableHeader />
-                                <ProjectsTableBody />
+                                <ProjectsTableBody
+                                    condition={condition}
+                                    handleCondition={handleCondition}
+                                />
                             </table>
                         </div>
                     </div>

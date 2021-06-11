@@ -2,7 +2,7 @@ import React from "react";
 
 const VerticalBadge = ({ handleClick, className, textWithReturn }) =>
     textWithReturn.split("\\n").map((text) => (
-        <div className="table">
+        <div key={text} className="table">
             <div className="table-row">
                 <div className="table-ceil">
                     <span

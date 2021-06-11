@@ -1,19 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-console.log(process.env.PUBLIC_URL);
-console.log(window.location.href);
-
-// BrowserRouter to HashRouter for depoying to Github Pages
 ReactDOM.render(
-  <React.StrictMode>
-    <HashRouter basename={process.env.PUBLIC_URL}><App /></HashRouter>
-    {/* <BrowserRouter><App /></BrowserRouter> */}
-  </React.StrictMode>,
+  <React.StrictMode><App /></React.StrictMode>,
   document.getElementById('root')
 );
 

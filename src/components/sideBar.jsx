@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-const Sidebar = () => {
+const Sidebar = ({ handleClick }) => {
     const [collapseShow, setCollapseShow] = useState("hidden");
     return (
         <>
@@ -19,12 +18,13 @@ const Sidebar = () => {
                         <i className="fas fa-bars"></i>
                     </button>
                     {/* Brand */}
-                    <Link
+                    <span
                         className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                        to="/"
+                        onClick={() => handleClick("Profile")}
+                        style={{ cursor: "pointer" }}
                     >
                         Resume
-                    </Link>
+                    </span>
                     {/* Collapse */}
                     <div
                         className={
@@ -36,69 +36,50 @@ const Sidebar = () => {
                         <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
                             <div className="flex flex-wrap">
                                 <div className="w-6/12">
-                                    <Link
+                                    <span
                                         className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                                        to="/"
+                                        onClick={() => handleClick("Profile")}
+                                        style={{ cursor: "pointer" }}
                                     >
                                         Resume
-                                    </Link>
+                                    </span>
                                 </div>
                                 <div className="w-6/12 flex justify-end">
-                                    <button
+                                    <span
                                         type="button"
                                         className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
                                         onClick={() =>
                                             setCollapseShow("hidden")
                                         }
+                                        style={{ cursor: "pointer" }}
                                     >
                                         <i className="fas fa-times"></i>
-                                    </button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         {/* Navigation */}
                         <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                             <li className="items-center">
-                                <Link
-                                    // className="text-pink-500 hover:text-pink-600 text-xs uppercase py-3 font-bold block"
-                                    className="text-indigo-600 hover:text-pink-600 text-xs uppercase py-3 font-bold block"
-                                    to="/profile"
-                                    onClick={() => {
-                                        console.log("Link onClice");
-                                        // setControl(1);
-                                        // this.forceUpdate();
-                                        // updateNavigation(item.name);
-
-                                        window.location =
-                                            "/resume/#/resume/profile";
-                                    }}
+                                <span
+                                    className="text-indigo-600 hover:text-indigo-400 text-xs uppercase py-3 font-bold block"
+                                    onClick={() => handleClick("Profile")}
+                                    style={{ cursor: "pointer" }}
                                 >
                                     <i className="fas fa-user-circle opacity-75 mr-2 text-sm"></i>{" "}
                                     Profile
-                                </Link>
+                                </span>
                             </li>
 
                             <li className="items-center">
-                                <Link
-                                    className="text-indigo-600 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                                    to="/projects"
-                                    onClick={() => {
-                                        console.log("Link onClice");
-                                        // setControl(1);
-                                        // this.forceUpdate();
-                                        // updateNavigation(item.name);
-
-                                        console.log(
-                                            "loc: " + window.location.href
-                                        );
-
-                                        window.location =
-                                            "/resume/#/resume/projects";
-                                    }}
+                                <span
+                                    className="text-indigo-600 hover:text-indigo-400 text-xs uppercase py-3 font-bold block"
+                                    onClick={() => handleClick("Projects")}
+                                    style={{ cursor: "pointer" }}
                                 >
                                     <i className="fas fa-clipboard-list text-blueGray-400 mr-2 text-sm"></i>{" "}
                                     Projects
-                                </Link>
+                                </span>
                             </li>
                         </ul>
                     </div>

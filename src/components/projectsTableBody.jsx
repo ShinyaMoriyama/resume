@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { fileterProjectData, getProjectsData } from "../data/projectsData";
 import VerticalBadge from "./common/verticalBadge";
+import UserContext from "../context/userContext";
 
 function ProjectsTableBody() {
+    const { condition, handleCondition } = useContext(UserContext);
     const [projectsData, setProjectData] = useState([]);
+
     useEffect(() => {
-        const projectsData = getProjectsData();
+        const projectsData = condition.key
+            ? fileterProjectData(condition.key, condition.value)
+            : getProjectsData();
         console.log("useEffect!!", projectsData);
         setProjectData(projectsData);
-    }, []);
-
-    const handleProjectData = (key, value) => {
-        console.log("called!");
-        const projectsData = fileterProjectData(key, value);
-        setProjectData(projectsData);
-    };
+    }, [condition]);
 
     return (
         <tbody className="bg-white divide-y divide-gray-200">
@@ -32,7 +31,7 @@ function ProjectsTableBody() {
                         <span
                             onClick={(e) => {
                                 console.log(e.target.innerText);
-                                handleProjectData(
+                                handleCondition(
                                     "belonging",
                                     e.target.innerText
                                 );
@@ -48,10 +47,7 @@ function ProjectsTableBody() {
                             {project.title}{" "}
                             <span
                                 onClick={(e) =>
-                                    handleProjectData(
-                                        "role",
-                                        e.target.innerText
-                                    )
+                                    handleCondition("role", e.target.innerText)
                                 }
                                 className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                                 style={{ cursor: "pointer" }}
@@ -72,10 +68,7 @@ function ProjectsTableBody() {
                     <td className="px-6 py-4 whitespace-pre">
                         <VerticalBadge
                             handleClick={(e) =>
-                                handleProjectData(
-                                    "languages",
-                                    e.target.innerText
-                                )
+                                handleCondition("languages", e.target.innerText)
                             }
                             className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                             textWithReturn={project.languages}
@@ -84,7 +77,7 @@ function ProjectsTableBody() {
                     <td className="px-6 py-4 whitespace-pre">
                         <VerticalBadge
                             handleClick={(e) =>
-                                handleProjectData("db", e.target.innerText)
+                                handleCondition("db", e.target.innerText)
                             }
                             className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                             textWithReturn={project.db}
@@ -93,10 +86,7 @@ function ProjectsTableBody() {
                     <td className="px-6 py-4 whitespace-pre">
                         <VerticalBadge
                             handleClick={(e) =>
-                                handleProjectData(
-                                    "libraries",
-                                    e.target.innerText
-                                )
+                                handleCondition("libraries", e.target.innerText)
                             }
                             className="px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                             textWithReturn={project.libraries}
