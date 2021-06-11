@@ -68,7 +68,9 @@ const Sidebar = () => {
                                         // setControl(1);
                                         // this.forceUpdate();
                                         // updateNavigation(item.name);
-                                        window.location = "/profile";
+
+                                        window.location =
+                                            "/resume/#/resume/profile";
                                     }}
                                 >
                                     <i className="fas fa-user-circle opacity-75 mr-2 text-sm"></i>{" "}
@@ -85,7 +87,13 @@ const Sidebar = () => {
                                         // setControl(1);
                                         // this.forceUpdate();
                                         // updateNavigation(item.name);
-                                        window.location = "/projects";
+
+                                        console.log(
+                                            "loc: " + window.location.href
+                                        );
+
+                                        window.location =
+                                            "/resume/#/resume/projects";
                                     }}
                                 >
                                     <i className="fas fa-clipboard-list text-blueGray-400 mr-2 text-sm"></i>{" "}
