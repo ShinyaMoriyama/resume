@@ -7,7 +7,7 @@ function Portfolio() {
                 {portfolioData.map((p) => (
                     <div
                         key={p.title}
-                        className="p-4 mt-6 sm:mt-0 sm:border-8 border-white bg-white sm:rounded-lg whitespace-normal"
+                        className="p-4 mt-6 sm:mt-0 sm:border-8 border-indigo-200 bg-indigo-200 sm:rounded-lg whitespace-normal"
                     >
                         <a href={p.url} rel="noreferrer" target="_blank">
                             <img

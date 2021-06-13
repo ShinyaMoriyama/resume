@@ -3,12 +3,14 @@ import profileData from "../data/profileData";
 function Profile() {
     return (
         <div className="sm:w-5/6 sm:h-5/6 overflow-y-auto mt-auto md:mt-0">
-            <dl className="sm:border-8 border-gray-50 sm:rounded-lg">
+            <dl className="sm:border-8 border-indigo-200 sm:rounded-lg">
                 {Object.keys(profileData).map((key, index) => (
                     <div
                         key={index}
                         className={
-                            (index % 2 === 0 ? "bg-gray-50" : "bg-white") +
+                            (index % 2 === 0
+                                ? "bg-gray-200"
+                                : "bg-indigo-200") +
                             " px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6"
                         }
                     >

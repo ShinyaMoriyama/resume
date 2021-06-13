@@ -16,7 +16,7 @@ function ProjectsTableBody() {
     }, [condition]);
 
     return (
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-indigo-200 divide-y divide-gray-200">
             {projectsData.map((project) => (
                 <tr key={project.from + project.to}>
                     <td className="px-6 py-4 whitespace-nowrap">

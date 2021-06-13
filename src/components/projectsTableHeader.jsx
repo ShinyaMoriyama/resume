@@ -24,7 +24,7 @@ function ProjectsTableHeader() {
     });
 
     return (
-        <thead className="bg-gray-50">
+        <thead className="bg-gray-200">
             <tr>{elements}</tr>
         </thead>
     );

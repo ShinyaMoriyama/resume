@@ -38,14 +38,14 @@ const Sidebar = ({ handleClick }) => {
     const [collapseShow, setCollapseShow] = useState("hidden");
     return (
         <>
-            <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-48 z-10 py-4 px-6">
+            <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-indigo-200 flex flex-wrap items-center justify-between relative md:w-48 z-10 py-4 px-6">
                 <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
                     {/* Toggler */}
                     <button
                         className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
                         type="button"
                         onClick={() =>
-                            setCollapseShow("bg-white m-2 py-3 px-6")
+                            setCollapseShow("bg-indigo-200 m-2 py-3 px-6")
                         }
                     >
                         <i className="fas fa-bars"></i>
