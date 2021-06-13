@@ -1,6 +1,39 @@
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+const internalLinks = [
+    {
+        name: "Profile",
+        iconClass: "fas fa-user-circle",
+    },
+    {
+        name: "Projects",
+        iconClass: "fas fa-clipboard-list",
+    },
+    {
+        name: "Portfolio",
+        iconClass: "fas fa-palette",
+    },
+];
+
+const externalLinks = [
+    {
+        name: "Twitter",
+        iconClass: "fab fa-twitter",
+        url: "https://twitter.com/morisin2020",
+    },
+    {
+        name: "Github",
+        iconClass: "fab fa-github",
+        url: "https://github.com/ShinyaMoriyama",
+    },
+    {
+        name: "Zenn.dev",
+        iconClass: "fas fa-book",
+        url: "https://zenn.dev/morisin",
+    },
+];
+
 const Sidebar = ({ handleClick }) => {
     const [collapseShow, setCollapseShow] = useState("hidden");
     return (
@@ -19,7 +52,7 @@ const Sidebar = ({ handleClick }) => {
                     </button>
                     {/* Brand */}
                     <span
-                        className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                        className="md:block text-left md:pb-2 text-gray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                         onClick={() => handleClick("Profile")}
                         style={{ cursor: "pointer" }}
                     >
@@ -60,27 +93,46 @@ const Sidebar = ({ handleClick }) => {
                         </div>
                         {/* Navigation */}
                         <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-                            <li className="items-center">
-                                <span
-                                    className="text-indigo-600 hover:text-indigo-400 text-xs uppercase py-3 font-bold block"
-                                    onClick={() => handleClick("Profile")}
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    <i className="fas fa-user-circle opacity-75 mr-2 text-sm"></i>{" "}
-                                    Profile
-                                </span>
-                            </li>
+                            {internalLinks.map((l) => (
+                                <li key={l.name} className="items-center">
+                                    <span
+                                        className="text-indigo-600 hover:text-indigo-400 text-xs uppercase py-3 font-bold block"
+                                        onClick={() => handleClick(l.name)}
+                                        style={{ cursor: "pointer" }}
+                                    >
+                                        <i
+                                            className={
+                                                l.iconClass +
+                                                " text-indigo-600 mr-2 text-sm"
+                                            }
+                                        ></i>{" "}
+                                        {l.name}
+                                    </span>
+                                </li>
+                            ))}
 
-                            <li className="items-center">
-                                <span
-                                    className="text-indigo-600 hover:text-indigo-400 text-xs uppercase py-3 font-bold block"
-                                    onClick={() => handleClick("Projects")}
-                                    style={{ cursor: "pointer" }}
-                                >
-                                    <i className="fas fa-clipboard-list text-blueGray-400 mr-2 text-sm"></i>{" "}
-                                    Projects
-                                </span>
-                            </li>
+                            {externalLinks.map((l) => (
+                                <li key={l.name} className="items-center">
+                                    <a
+                                        href={l.url}
+                                        rel="noreferrer"
+                                        target="_blank"
+                                    >
+                                        <span
+                                            className="text-gray-600 hover:text-gray-400 text-xs uppercase py-3 font-bold block"
+                                            style={{ cursor: "pointer" }}
+                                        >
+                                            <i
+                                                className={
+                                                    l.iconClass +
+                                                    " text-gray-600 mr-2 text-sm"
+                                                }
+                                            ></i>{" "}
+                                            {l.name}
+                                        </span>
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

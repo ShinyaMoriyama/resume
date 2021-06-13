@@ -17,6 +17,21 @@ function Profile() {
                         </dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3 whitespace-pre-line">
                             {profileData[key].replaceAll("\\n", "\n")}
+                            {key === "氏名" && (
+                                <div className="flex flex-wrap justify-start">
+                                    <div className="w-6/12 sm:w-4/12 px-4">
+                                        <img
+                                            src={
+                                                process.env.PUBLIC_URL +
+                                                "/assets/" +
+                                                "ZvE449RD_400x400.jpeg"
+                                            }
+                                            alt="..."
+                                            className="shadow rounded-full max-w-full h-auto align-middle border-none"
+                                        />
+                                    </div>
+                                </div>
+                            )}
                         </dd>
                     </div>
                 ))}

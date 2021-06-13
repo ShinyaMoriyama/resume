@@ -43,7 +43,8 @@ function ProjectsTableBody() {
                     </td>
                     <td className="px-6 py-4 whitespace-normal">
                         <div className="text-sm text-gray-900">
-                            {project.title}{" "}
+                            {project.title}
+                            <br />
                             <span
                                 onClick={(e) =>
                                     handleCondition("role", e.target.innerText)
@@ -54,12 +55,13 @@ function ProjectsTableBody() {
                                 {project.role}
                             </span>
                         </div>
-                        <div className="text-sm text-gray-500">
+                    </td>
+                    <td className="px-6 py-4">
+                        <div className="text-sm text-gray-500 whitespace-normal">
                             {project.benefits}
                         </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-pre">
-                        <div className="text-sm text-gray-900">
+                        <br />
+                        <div className="text-sm text-gray-900 whitespace-pre">
                             {"- " +
                                 project.descriptions.replaceAll("\\n", "\n- ")}
                         </div>

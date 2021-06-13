@@ -3,6 +3,7 @@ import WithBackground from "./components/common/withBackground";
 // import NavBar from "./components/navBar";
 import Projects from "./components/projects";
 import Profile from "./components/profile";
+import Portfolio from "./components/portfolio";
 import Sidebar from "./components/sideBar";
 import UserContext from "./context/userContext";
 // import './App.css';
@@ -36,6 +37,12 @@ function App() {
                             <Projects />
                         </WithBackground>
                     </UserContext.Provider>
+                );
+            case "Portfolio":
+                return (
+                    <WithBackground>
+                        <Portfolio />
+                    </WithBackground>
                 );
             default:
                 return (
