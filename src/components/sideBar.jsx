@@ -17,21 +17,21 @@ const internalLinks = [
 ];
 
 const externalLinks = [
-    {
-        name: "Twitter",
-        iconClass: "fab fa-twitter",
-        url: "https://twitter.com/morisin2020",
-    },
+    // {
+    //     name: "Twitter",
+    //     iconClass: "fab fa-twitter",
+    //     url: "https://twitter.com/morisin2020",
+    // },
     {
         name: "Github",
         iconClass: "fab fa-github",
         url: "https://github.com/ShinyaMoriyama",
     },
-    {
-        name: "Zenn.dev",
-        iconClass: "fas fa-book",
-        url: "https://zenn.dev/morisin",
-    },
+    // {
+    //     name: "Zenn.dev",
+    //     iconClass: "fas fa-book",
+    //     url: "https://zenn.dev/morisin",
+    // },
 ];
 
 const Sidebar = ({ handleClick }) => {
